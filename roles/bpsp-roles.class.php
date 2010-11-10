@@ -87,7 +87,7 @@ class BPSP_Roles {
      */
     function profile_screen_hide_roles( $options ) {
         global $bp;
-        $user_field_data = xprofile_get_field_data( __( 'Role'), $bp->loggedin_user->id );
+        $user_field_data = xprofile_get_field_data( __( 'Role', 'bpsp' ), $bp->loggedin_user->id );
         for( $i = 0; $i < count( $options ); $i++ ) {
             if( !is_super_admin() &&
                 $user_field_data == __( 'Teacher', 'bpsp' ) &&
@@ -185,8 +185,8 @@ class BPSP_Roles {
             )
         );
         
-        if( !xprofile_get_field_id_from_name( __( 'Teacher' ) ) ||
-            !xprofile_get_field_id_from_name( __( 'Student' ) ) ||
+        if( !xprofile_get_field_id_from_name( __( 'Teacher', 'bpsp' ) ) ||
+            !xprofile_get_field_id_from_name( __( 'Student', 'bpsp' ) ) ||
             !xprofile_get_field_id_from_name( __( 'Apply for Teacher', 'bpsp' ) )
         )
             wp_die( __( 'BuddyPress Courseware error when saving xProfile field options.', 'bpsp' ) );
@@ -220,7 +220,7 @@ class BPSP_Roles {
      * @return Bool, true if is a teacher and false on failure
      */
     function is_teacher( $user_id ) {
-        if( __( 'Teacher', 'bpsp') == xprofile_get_field_data( __( 'Role'), $user_id ) )
+        if( __( 'Teacher', 'bpsp') == xprofile_get_field_data( __( 'Role', 'bpsp' ), $user_id ) )
             return true;
         else
             return false;
