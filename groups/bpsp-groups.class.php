@@ -64,6 +64,7 @@ class BPSP_Groups {
 	$global_status = get_option( 'bpsp_global_status' );
 	$group_status = groups_get_groupmeta( $group_id, 'courseware' );
 	
+	/*TODO: Simplify this!!!*/
 	if( 'true' == $group_status )
 	    return true;
 	elseif ( 'false' == $group_status )
