@@ -54,7 +54,7 @@ class BPSP_Bibliography {
         $this->isbndb_key = get_option( 'bpsp_isbndb_key' );
     }
     
-/**
+    /**
      * register_post_types()
      *
      * Static function to register the bibliography post types and capabilities.
@@ -491,6 +491,8 @@ class BPSP_Bibliography {
      * @return Array $vars modified
      */
     function edit_bib_screen( $vars ) {
+        global $bp;
+        
         $nonce_name = 'edit_bib';
         $nonce_delete_name = 'delete_bib';
         $nonce_edit_name = $nonce_name;
